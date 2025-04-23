@@ -5,7 +5,7 @@ _id:{type:String,required :true},
 name:{type:String,required :true},
 email:{type:String,required :true,unique : true},
 Imageurl:{type:String,required :true},
-cartItems:{type:String,default:{}}
+cartItems:{type:Object,default:{}}
 },{minimize:false})
 
 const User =mongoose.model.user || mongoose.model('user',userSchema)
