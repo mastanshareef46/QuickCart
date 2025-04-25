@@ -1,16 +1,13 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema(
-  {
-    _id: { type: String, required: true },
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    Imageurl: { type: String ,required :true},
-    cartItems: { type: Map, of: mongoose.Schema.Types.Mixed, default: {} }, 
-  },
-  { minimize: false }
-);
+const mongoose = require('mongoose');
 
-const User = mongoose.models.user || mongoose.model("user", userSchema);
+const UserSchema = new mongoose.Schema({
+  first_name: { type: String, required: true },
+  last_name: { type: String, required: true },
+  email_address: { type: String, required: true },
+  phone_number: { type: String, required: true },
+  image_url: { type: String, required: true } // <- correct field from your JSON
+});
 
-export default User;
+module.exports = mongoose.model('User', UserSchema);
